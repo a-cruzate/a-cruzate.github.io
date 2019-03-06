@@ -1,0 +1,48 @@
+<! DOCTYPE html>
+< html  lang = " {{site.lang | default: " en-US " }} " >
+  < cabeza >
+
+    {% if site.google_analytics%}
+      < Secuencia de comandos  asincrónico  src = " https://www.googletagmanager.com/gtag/js?id= {{}} site.google_analytics " > </ script de >
+      < script >
+        ventana . dataLayer  =  ventana . dataLayer  || [];
+        función  gtag () { dataLayer . empujar ( argumentos );}
+        gtag ( ' js ' , new  Date ());
+        gtag ( ' config ' , ' {{site.google_analytics}} ' );
+      </ script >
+    {% terminara si %}
+    < meta  charset = " UTF-8 " >
+
+{% seo%}
+    < meta  name = " viewport "  content = " width = device-width, initial-scale = 1 " >
+    < meta  name = " theme-color "  content = " # 157878 " >
+    < meta  name = " apple-mobile-web-app-status-bar-style "  content = " black-translucent " >
+    < link  rel = " hoja de estilo "  href = " {{'/assets/css/style.css?v=' | append: site.github.build_revision | relative_url}} " >
+  </ cabeza >
+  < cuerpo >
+    < Un  ID = " skip-a-contenido "  href = " #content " > saltar al contenido. </ Una >
+
+    < header  class = " page-header "  role = " banner " >
+      < h1  class = " project-name " > {{page.title | por defecto: site.title | predeterminado: site.github.repository_name}} </ h1 >
+      < h2  class = " project-tagline " > {{page.description | por defecto: site.description | predeterminado: site.github.project_tagline}} </ h2 >
+      {% if site.github.is_project_page%}
+        < Un  href = " {{}} site.github.repository_url "  clase = " Bot " > Ver en GitHub </ a >
+      {% terminara si %}
+      {% if site.show_downloads%}
+        < Un  href = " {{}} site.github.zip_url "  clase = " Bot " > Descargar .zip </ a >
+        < Un  href = " {{}} site.github.tar_url "  clase = " Bot " > Descargar .tar.gz </ a >
+      {% terminara si %}
+    </ header >
+
+    < main  id = " content "  class = " main-content "  role = " main " >
+      {{ contenido }}
+
+      < footer  class = " site-footer " >
+        {% if site.github.is_project_page%}
+          < Lapso de  clase = " site-pie-propietario " > < un  href = " {{}} site.github.repository_url " > {{site.github.repository_name}} </ a > es mantenida por < un  href = " { {site.github.owner_url}} " > {{site.github.owner_name}} </ a >. </ span >
+        {% terminara si %}
+        < Lapso de  clase = " -footer-créditos del sitio " > Esta página fue generada por < un  href = " https://pages.github.com " > GitHub Páginas </ a >. </ Envergadura >
+      </ pie de página >
+    </ main >
+  </ cuerpo >
+</ html >
